@@ -1,2 +1,51 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+<div class="container" ng-controller="MainController">
+  <h1>SignMeApp</h1>
+
+  <form ng-submit="createNewUser()">
+    <input type="text" ng-model="newUser.firstname" placeholder="first name">
+    <input type="text" ng-model="newUser.lastname" placeholder="last name">
+    <input type="text" ng-model="newUser.email" placeholder="email">
+    <input type="submit">
+  </form>
+
+  <ul>
+    <li ng-repeat="user in users">
+      <h5>{{user.firstname}} {{user.lastname}}</h5>
+      <p>{{user.email}} <span><a href="#" ng-click="deleteUser(user.id)">Delete</a></span></p>
+    </li>
+  </ul>
+
+  <!-- <table>
+    <thead>
+      <th>
+        First Name
+      </th>
+      <th>
+        Last Name
+      </th>
+      <th>
+        Email
+      </th>
+      <th>
+        Delete
+      </th>
+    </thead>
+    <tbody>
+      <div>
+        <td>
+          {{user.firstname}}
+        </td>
+        <td>
+          {{user.lastname}}
+        </td>
+        <td>
+        </td>
+        <td>
+
+        </td>
+      </div>
+    </tbody>
+  </table> -->
+
+</div>

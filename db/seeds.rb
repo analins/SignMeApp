@@ -10,5 +10,7 @@
 user = User.create({
   firstname: 'Ana',
   lastname: 'Lins',
-  email: 'a.navarrolins88@gmail.com'
+  email: 'a.navarrolins88@gmail.com',
+  book: 'book',
+  review: 'loves it loves it loves it loves it loves it loves it loves it loves it loves it'
   })
