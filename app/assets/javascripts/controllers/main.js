@@ -20,6 +20,13 @@ ctrl.controller('MainController', ['$scope', 'UsersApi', function ($scope, Users
     });
   }
 
+  // $scope.editUser = function (id) {
+  //   UsersApi.get(id).then(function (response) {
+  //     dbUser = response.data;
+  //     $scope.getAllUsers();
+  //   });
+  // }
+
   $scope.deleteUser = function (id) {
     UsersApi.delete(id).then(function (response) {
       dbUser = response.data;

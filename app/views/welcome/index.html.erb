@@ -1,51 +1,28 @@
+<nav>
+  <h1>SignMeApp</h1> <a href="#">about</a>
+</nav>
 
 <div class="container" ng-controller="MainController">
-  <h1>SignMeApp</h1>
+
 
   <form ng-submit="createNewUser()">
     <input type="text" ng-model="newUser.firstname" placeholder="first name">
     <input type="text" ng-model="newUser.lastname" placeholder="last name">
     <input type="text" ng-model="newUser.email" placeholder="email">
+    <input type="text" ng-model="newUser.book" placeholder="book">
+    <input type="textarea" ng-model="newUser.review" placeholder="write a review">
+    <textarea ng-model="newUser.review" rows="5" cols="40" placeholder="write a review"></textarea>
+
     <input type="submit">
   </form>
-
+<div class="reviews">
   <ul>
     <li ng-repeat="user in users">
       <h5>{{user.firstname}} {{user.lastname}}</h5>
       <p>{{user.email}} <span><a href="#" ng-click="deleteUser(user.id)">Delete</a></span></p>
+      <a href="#" ng-click="editUser(user.id)">Edit</a>
     </li>
   </ul>
-
-  <!-- <table>
-    <thead>
-      <th>
-        First Name
-      </th>
-      <th>
-        Last Name
-      </th>
-      <th>
-        Email
-      </th>
-      <th>
-        Delete
-      </th>
-    </thead>
-    <tbody>
-      <div>
-        <td>
-          {{user.firstname}}
-        </td>
-        <td>
-          {{user.lastname}}
-        </td>
-        <td>
-        </td>
-        <td>
-
-        </td>
-      </div>
-    </tbody>
-  </table> -->
+</div>
 
 </div>
