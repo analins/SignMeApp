@@ -1,30 +1,36 @@
 <nav>
-  <h1>SignMeApp</h1> <input type="text" ng-model="q" placeholder="search">
+  <ul class="pure-g">
+    <li class="pure-u-1-3" id="search"><input type="text" ng-model="q" placeholder="search"></li>
+    <li class="pure-u-1-3"><h1>Sign Me App</h1></li>
+  </ul>
 </nav>
 
 <div class="container" ng-controller="MainController">
 
-
-  <form ng-submit="createNewUser()">
+  <h2 ng-show="signedup">Thanks for signing up!</h2>
+  <form ng-hide="signedup" ng-submit="createNewUser()" class="pure-form">
     <input type="text" ng-model="newUser.firstname" placeholder="first name">
     <input type="text" ng-model="newUser.lastname" placeholder="last name">
     <input type="text" ng-model="newUser.email" placeholder="email">
-    <input type="text" ng-model="newUser.book" placeholder="book">
-    <input type="textarea" ng-model="newUser.review" placeholder="write a review">
-    <textarea ng-model="newUser.review" rows="5" cols="40" placeholder="write a review"></textarea>
-
-    <input type="submit">
+    <!-- <input type="text" ng-model="newUser.book" placeholder="book">
+    <textarea ng-model="newUser.review" rows="5" cols="40" placeholder="write a review"></textarea> -->
+    <input type="submit" class="pure-button pure-button-primary">
   </form>
-<div class="reviews">
+
+<div ng-hide="signedup" class="list">
   <ul>
-    <li ng-repeat="user in users | filter:q">
-      <h5>{{user.firstname}} {{user.lastname}}</h5>
+
+    <li ng-repeat="user in users | filter:q" class="pure-g">
+      <p class="pure-u-1-3">{{user.firstname}} {{user.lastname}}</p>
+      <p class="pure-u-1-3"><a href="mailto:{{user.email}}">{{user.email}}</a></p>
+      <!-- <h5>{{user.firstname}} {{user.lastname}}</h5>
       <h6>{{user.book}}</h6>
-      <p>{{user.review}}</p>
-      <a href="#" ng-click="deleteUser(user.id)">Remove</a>
+      <p>{{user.review}}</p> -->
+      <p class="pure-u-1-3"><a href="#" ng-click="deleteUser(user.id)">Remove</a></p>
       <!-- <a href="#" ng-click="editUser(user.id)">Edit</a> -->
     </li>
   </ul>
+
 </div>
 
 </div>

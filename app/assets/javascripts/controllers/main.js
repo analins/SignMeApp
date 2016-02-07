@@ -1,10 +1,17 @@
 var ctrl = angular.module('MainController', []);
 
-ctrl.controller('MainController', ['$scope', 'UsersApi', function ($scope, UsersApi) {
+ctrl.controller('MainController', ['$scope', '$timeout', 'UsersApi', function ($scope, $timeout, UsersApi) {
 
   $scope.users = [];
   $scope.newUser = {};
 
+  $scope.signedUpAnimate = function(){
+      $scope.signedup = true;
+      $timeout(function(){
+        $scope.newUser = {};
+        $scope.signedup = false;
+      }, 2000);
+    }
 
   $scope.getAllUsers = function () {
     UsersApi.getAll().then(function (response) {
@@ -16,7 +23,8 @@ ctrl.controller('MainController', ['$scope', 'UsersApi', function ($scope, Users
     UsersApi.createUser($scope.newUser).then(function (response) {
       $scope.users.push(response.data);
       $scope.getAllUsers();
-      $scope.newUser = {};
+      $scope.signedUpAnimate();
+
     });
   }
 
