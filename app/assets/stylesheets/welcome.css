@@ -4,6 +4,7 @@ body {
   background-position: center;
   font-family: 'Raleway', sans-serif;
   margin: 0 auto;
+  height: 100vh;
 
 }
 nav {
