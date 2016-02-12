@@ -7,10 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-user = User.create({
-  firstname: 'Ana',
-  lastname: 'Lins',
-  email: 'a.navarrolins88@gmail.com',
-  book: 'book',
-  review: 'loves it loves it loves it loves it loves it loves it loves it loves it loves it'
-  })
+10.times do
+  User.create({
+    firstname: Faker::Name.first_name,
+    lastname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    book: Faker::Book.title,
+    review: Faker::Hipster.paragraph
+     })
+end
